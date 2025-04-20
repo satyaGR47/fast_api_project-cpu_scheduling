@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', path='style.css') }}"
+    />
+    <title>CPU Scheduling Simulator</title>
+  </head>
+  <body>
+    <h1>CPU Scheduling Simulator</h1>
+    <form action="/schedule" method="post">
+      <label>Process IDs (comma-separated):</label><br />
+      <input type="text" name="pids" required /><br /><br />
+
+      <label>Arrival Times (comma-separated):</label><br />
+      <input type="text" name="arrivals" required /><br /><br />
+
+      <label>Burst Times (comma-separated):</label><br />
+      <input type="text" name="bursts" required /><br /><br />
+
+      <label>Select Scheduling Algorithm:</label><br />
+      <select name="algorithm" required>
+        <option value="fcfs">First Come First Serve (FCFS)</option>
+        <option value="sjf">Shortest Job First (SJF)</option></select
+      ><br /><br />
+
+      <input type="submit" value="Simulate" />
+    </form>
+  </body>
+</html>

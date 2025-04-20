@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', path='style.css') }}"
+    />
+    <title>{{ algorithm }} Results</title>
+  </head>
+  <body>
+    <h1>{{ algorithm }} Results</h1>
+    <table border="1">
+      <tr>
+        <th>Process ID</th>
+        <th>Arrival Time</th>
+        <th>Burst Time</th>
+        <th>Start Time</th>
+        <th>Completion Time</th>
+        <th>Turnaround Time</th>
+        <th>Waiting Time</th>
+      </tr>
+      {% for process in processes %}
+      <tr>
+        <td>{{ process.process_id }}</td>
+        <td>{{ process.arrival_time }}</td>
+        <td>{{ process.burst_time }}</td>
+        <td>{{ process.start_time }}</td>
+        <td>{{ process.completion_time }}</td>
+        <td>{{ process.turnaround_time }}</td>
+        <td>{{ process.waiting_time }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <p>Average Waiting Time: {{ average_waiting_time }}</p>
+  </body>
+</html>
